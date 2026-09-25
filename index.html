@@ -1,0 +1,2514 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gulam Saba Uddin — Full-Stack Developer & AI Enthusiast</title>
+  <meta name="description"
+    content="Portfolio of Gulam Saba Uddin, a computer science engineering student building practical software across web, Python, mobile, and AI.">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Gulam Saba Uddin — Full-Stack Developer & AI Enthusiast">
+  <meta property="og:description"
+    content="Portfolio of Gulam Saba Uddin, a computer science engineering student building practical software across web, Python, mobile, and AI.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/profile.jpg">
+
+  <!-- Google Fonts: Plus Jakarta Sans for editorial clarity & JetBrains Mono for technical typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            surface: {
+              DEFAULT: '#ffffff',
+              subtle: '#f8fafc',
+              warm: '#fbfbfb',
+              border: '#e2e8f0',
+              'border-subtle': '#f1f5f9'
+            },
+            charcoal: {
+              DEFAULT: '#0f172a',
+              muted: '#475569',
+              light: '#94a3b8'
+            },
+            accent: {
+              DEFAULT: '#0284c7', // Professional technical blue
+              hover: '#0369a1',
+              subtle: '#f0f9ff',
+              border: '#bae6fd'
+            },
+            ember: {
+              DEFAULT: '#d97706', // Warm secondary accent
+              hover: '#b45309',
+              subtle: '#fffbeb',
+              border: '#fde68a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Editorial Baseline & Typography Details */
+    ::selection {
+      background-color: #e0f2fe;
+      color: #0369a1;
+    }
+
+    /* Subtle Animated Underline for Navigation */
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -6px;
+      left: 0;
+      background-color: #0284c7;
+      border-radius: 1px;
+      transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Hero Entrance Keyframes & Staggered Animations */
+    @keyframes heroFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes heroFadeScale {
+      from {
+        opacity: 0;
+        transform: scale(0.97);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes hero3DFadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .hero-enter-eyebrow {
+      animation: heroFadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) 80ms both;
+    }
+
+    .hero-enter-name {
+      animation: heroFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 160ms both;
+    }
+
+    .hero-enter-title {
+      animation: heroFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 240ms both;
+    }
+
+    .hero-enter-desc {
+      animation: heroFadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 340ms both;
+    }
+
+    .hero-enter-buttons {
+      animation: heroFadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 440ms both;
+    }
+
+    .hero-enter-photo {
+      animation: heroFadeScale 0.55s cubic-bezier(0.16, 1, 0.3, 1) 520ms both;
+    }
+
+    .hero-enter-3d {
+      animation: hero3DFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 640ms both;
+    }
+
+    /* Scroll Reveal System with Staggered Visual Types */
+    .reveal-item,
+    .reveal-heading {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-card {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-row {
+      opacity: 0;
+      transform: translateX(20px);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-item.is-revealed,
+    .reveal-heading.is-revealed,
+    .reveal-card.is-revealed,
+    .reveal-row.is-revealed {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    /* Stats Reveal with subtle scale and upward stagger */
+    .stat-box {
+      opacity: 0;
+      transform: scale(0.97) translateY(8px);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .stats-container.is-revealed .stat-box:nth-child(1) {
+      transition-delay: 0ms;
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    .stats-container.is-revealed .stat-box:nth-child(2) {
+      transition-delay: 60ms;
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    .stats-container.is-revealed .stat-box:nth-child(3) {
+      transition-delay: 120ms;
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    .stats-container.is-revealed .stat-box:nth-child(4) {
+      transition-delay: 180ms;
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    /* Horizontal Scrollable Skill System & Focused Card Experience */
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-none {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .skills-scroll-section {
+      position: relative;
+    }
+
+    /* Mobile: fluid horizontal swipe with native momentum snap */
+    @media (max-width: 767px) {
+      .skills-stage-container {
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-left: max(1rem, calc(50vw - 165px));
+        padding-right: max(1rem, calc(50vw - 165px));
+        scroll-padding: 0 max(1rem, calc(50vw - 165px));
+      }
+      .skill-card-focused {
+        scroll-snap-align: center;
+      }
+    }
+
+    /* Desktop: smooth stage view */
+    @media (min-width: 768px) {
+      .skills-stage-container {
+        overflow: hidden;
+      }
+    }
+
+    /* Individual Focused Skill Card: One Scroll = One Skill */
+    .skill-card-focused {
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.25s ease,
+                  box-shadow 0.3s ease;
+      will-change: transform, opacity;
+      user-select: none;
+    }
+
+    .skill-card-focused:not(.is-active) {
+      opacity: 0.38;
+      transform: scale(0.95);
+      cursor: pointer;
+    }
+
+    .skill-card-focused.is-active {
+      opacity: 1;
+      transform: scale(1);
+      border-color: #bae6fd;
+      box-shadow: 0 16px 36px -10px rgba(2, 132, 199, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+    }
+
+    .skill-accent-bar {
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .skill-card-focused.is-active .skill-accent-bar {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .skill-card-focused .skill-icon-wrap {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+    }
+
+    .skill-card-focused.is-active .skill-icon-wrap {
+      transform: translateY(-2px);
+      border-color: #bae6fd;
+    }
+
+    /* About Section Scroll-Triggered Transitions */
+    .about-enter-heading {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .about-enter-body {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 120ms, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 120ms;
+    }
+
+    .about-enter-visual {
+      opacity: 0;
+      transform: translateY(14px) scale(0.98);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 240ms, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 240ms;
+    }
+
+    .about-container.is-revealed .about-enter-heading,
+    .about-container.is-revealed .about-enter-body,
+    .about-container.is-revealed .about-enter-visual {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Scroll Padding for Sticky Navbar */
+    html {
+      scroll-padding-top: 4.5rem;
+    }
+
+    /* Button Micro-Interactions */
+    .interactive-btn {
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .interactive-btn:hover {
+      transform: translateY(-1.5px);
+    }
+
+    .interactive-btn:active {
+      transform: translateY(0.5px);
+    }
+
+    .interactive-btn .arrow-shift {
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .interactive-btn:hover .arrow-shift {
+      transform: translateX(3px);
+    }
+
+    /* Project Card Micro-Interactions (Lift 4-6px, shadow, border) */
+    .project-card {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px -8px rgba(15, 23, 42, 0.08), 0 4px 10px -4px rgba(15, 23, 42, 0.04);
+      border-color: #cbd5e1;
+    }
+
+    .project-card:hover .project-arrow-shift {
+      transform: translateX(3px);
+    }
+
+    /* KaamConnect Compact Architecture Animation & Single Pulse */
+    .arch-node {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .project-card.is-revealed .arch-node:nth-child(1) {
+      transition-delay: 80ms;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card.is-revealed .arch-node:nth-child(2) {
+      transition-delay: 200ms;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card.is-revealed .arch-node:nth-child(3) {
+      transition-delay: 320ms;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card.is-revealed .arch-node:nth-child(4) {
+      transition-delay: 440ms;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .arch-pulse-track {
+      position: relative;
+      background: #e2e8f0;
+      overflow: hidden;
+      border-radius: 1px;
+    }
+
+    .arch-pulse-line {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 0%, #0284c7 50%, transparent 100%);
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    /* Single pulse signal passing through architecture once on card reveal */
+    .project-card.is-revealed .arch-pulse-line {
+      animation: archPulseOnce 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.55s 1 forwards;
+    }
+
+    @keyframes archPulseOnce {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.9;
+      }
+      80% {
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+    }
+
+    .arch-container:hover .arch-node {
+      border-color: #bae6fd;
+      background-color: #f8fafc;
+    }
+
+    .arch-container:hover .arch-pulse-track {
+      background-color: #cbd5e1;
+    }
+
+    /* Vehicle Rental Lifecycle Flow Step Styling */
+    .flow-step {
+      transition: all 0.2s ease;
+    }
+
+    .flow-container:hover .flow-step {
+      border-color: #cbd5e1;
+    }
+
+    .flow-container:hover .flow-step:hover {
+      border-color: #d97706;
+      background-color: #fffbeb;
+      color: #d97706;
+      transform: translateY(-1px);
+    }
+
+    /* 3D Visual Container Styling */
+    #hero-3d {
+      position: absolute;
+      inset: -28px;
+      pointer-events: none;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    @media (min-width: 640px) {
+      #hero-3d {
+        inset: -38px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      #hero-3d {
+        inset: -52px;
+      }
+    }
+
+    #hero-3d canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* Small Geometric Decorative 3D Canvases */
+    .mini-3d-canvas canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* Respect user preference for reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      ::before,
+      ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .hero-enter-eyebrow,
+      .hero-enter-name,
+      .hero-enter-title,
+      .hero-enter-desc,
+      .hero-enter-buttons,
+      .hero-enter-photo,
+      .hero-enter-3d,
+      .reveal-item,
+      .reveal-heading,
+      .reveal-card,
+      .reveal-row,
+      .stat-box,
+      .arch-node,
+      .project-card {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body
+  class="bg-[#fafafa] text-charcoal font-sans antialiased selection:bg-accent-subtle selection:text-accent min-h-screen flex flex-col">
+
+  <!-- ACCESSIBILITY: Skip to main content -->
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-charcoal text-white px-4 py-2 rounded text-sm font-mono border border-slate-700">
+    Skip to main content
+  </a>
+
+  <!-- ================================================== -->
+  <!-- NAVBAR -->
+  <!-- ================================================== -->
+  <header id="navbar"
+    class="sticky top-0 z-40 w-full transition-all duration-300 border-b border-surface-border/80 bg-white/95 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+
+      <!-- Brand / Monogram & Name -->
+      <a href="#hero"
+        class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded px-1">
+        <span
+          class="w-8 h-8 rounded bg-charcoal text-white font-mono font-semibold text-xs flex items-center justify-center transition-colors group-hover:bg-accent">
+          GS
+        </span>
+        <div class="flex flex-col">
+          <span class="font-bold text-sm tracking-tight text-charcoal group-hover:text-accent transition-colors">
+            Gulam Saba Uddin
+          </span>
+          <span class="font-mono text-[10px] text-charcoal-light tracking-wider uppercase">
+            Portfolio
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Items -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-charcoal-muted"
+        aria-label="Main Navigation">
+        <a href="#about" class="nav-link hover:text-charcoal transition-colors">About</a>
+        <a href="#skills" class="nav-link hover:text-charcoal transition-colors">Skills</a>
+        <a href="#projects" class="nav-link hover:text-charcoal transition-colors">Projects</a>
+        <a href="#contact" class="nav-link hover:text-charcoal transition-colors">Contact</a>
+      </nav>
+
+      <!-- Desktop Right CTA -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="#contact"
+          class="interactive-btn inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-medium tracking-wide uppercase text-accent bg-accent-subtle hover:bg-accent hover:text-white border border-accent-border rounded shadow-xs focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-1">
+          <span>Let's Connect</span>
+          <svg class="w-3.5 h-3.5 arrow-shift" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" type="button"
+        class="md:hidden p-2 rounded text-charcoal-muted hover:text-charcoal hover:bg-surface-subtle focus:outline-none focus:ring-2 focus:ring-accent"
+        aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <svg id="hamburger-icon" class="w-5 h-5 transition-transform duration-200" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close-icon" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-nav"
+      class="hidden md:hidden border-b border-surface-border bg-white px-4 pt-3 pb-6 transition-all duration-300">
+      <div class="flex flex-col space-y-3">
+        <a href="#about"
+          class="mobile-nav-link px-3 py-2 rounded text-sm font-medium text-charcoal hover:bg-surface-subtle hover:text-accent transition-colors">About</a>
+        <a href="#skills"
+          class="mobile-nav-link px-3 py-2 rounded text-sm font-medium text-charcoal hover:bg-surface-subtle hover:text-accent transition-colors">Skills</a>
+        <a href="#projects"
+          class="mobile-nav-link px-3 py-2 rounded text-sm font-medium text-charcoal hover:bg-surface-subtle hover:text-accent transition-colors">Projects</a>
+        <a href="#contact"
+          class="mobile-nav-link px-3 py-2 rounded text-sm font-medium text-charcoal hover:bg-surface-subtle hover:text-accent transition-colors">Contact</a>
+        <div class="pt-2">
+          <a href="#contact"
+            class="mobile-nav-link flex items-center justify-center gap-2 w-full px-4 py-2.5 text-xs font-mono uppercase tracking-wider text-white bg-charcoal hover:bg-accent rounded transition-colors">
+            <span>Let's Connect</span>
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================================================== -->
+  <!-- MAIN CONTENT -->
+  <!-- ================================================== -->
+  <main id="main-content" class="flex-grow">
+
+    <!-- ================================================== -->
+    <!-- HERO SECTION -->
+    <!-- ================================================== -->
+    <section id="hero"
+      class="relative pt-14 pb-20 md:pt-24 md:pb-32 border-b border-surface-border overflow-hidden bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Hero Layout: Responsive Asymmetric Two-Column Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+          <!-- LEFT: Hero Content with Staggered Entrance -->
+          <div class="lg:col-span-7 flex flex-col items-start text-left z-10">
+
+            <!-- Clean Eyebrow -->
+            <div
+              class="hero-enter-eyebrow inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-surface-border bg-surface-warm text-xs font-mono font-medium text-charcoal-muted tracking-wide shadow-2xs">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>Hyderabad, India &bull; Available for Opportunities</span>
+            </div>
+
+            <!-- Name -->
+            <h1
+              class="hero-enter-name text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-charcoal leading-[1.08] mb-4">
+              Gulam Saba Uddin
+            </h1>
+
+            <!-- Professional Positioning & Primary Tagline -->
+            <div class="hero-enter-title mb-5">
+              <p class="text-base sm:text-lg font-semibold text-accent tracking-normal">
+                Full-Stack Developer &amp; AI Enthusiast
+              </p>
+              <h2 class="text-xl sm:text-2xl font-medium text-charcoal mt-1 tracking-tight">
+                &ldquo;Turning Ideas Into Functional Products.&rdquo;
+              </h2>
+            </div>
+
+            <!-- Supporting Introduction -->
+            <p class="hero-enter-desc text-base text-charcoal-muted leading-relaxed max-w-xl mb-8">
+              CS engineering student building practical, reliable software across web, mobile, and Python. Focused on
+              clean architecture, intuitive user workflows, and turning real problems into working systems.
+            </p>
+
+            <!-- Hero Action Buttons with Micro-Interactions -->
+            <div class="hero-enter-buttons flex flex-wrap items-center gap-4">
+              <!-- GitHub Button -->
+              <a href="https://github.com/gulamsabauddin1" target="_blank" rel="noopener noreferrer"
+                class="interactive-btn inline-flex items-center gap-2.5 px-5 py-2.5 text-xs font-mono font-semibold uppercase tracking-wider text-white bg-charcoal hover:bg-slate-800 rounded shadow-xs focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>GitHub Profile</span>
+              </a>
+
+              <!-- LinkedIn Button -->
+              <a href="https://www.linkedin.com/in/gulam-saba-uddin-4b93a4325/" target="_blank"
+                rel="noopener noreferrer"
+                class="interactive-btn inline-flex items-center gap-2.5 px-5 py-2.5 text-xs font-mono font-semibold uppercase tracking-wider text-charcoal bg-white hover:bg-surface-subtle border border-surface-border rounded shadow-xs focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">
+                <svg class="w-4 h-4 text-[#0077b5]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: Hero Visual (Profile Photo + Integrated 3D Geometric Signature) -->
+          <div class="lg:col-span-5 flex justify-center lg:justify-end">
+            <div
+              class="hero-visual relative w-72 h-72 sm:w-84 sm:h-84 md:w-96 md:h-96 flex items-center justify-center">
+
+              <!-- 3D Geometric Signature Container -->
+              <div id="hero-3d" aria-hidden="true" class="hero-enter-3d w-full h-full flex items-center justify-center">
+                <!-- SVG Wireframe Fallback -->
+                <svg id="hero-3d-fallback" class="w-full h-full text-accent/40" viewBox="0 0 400 400" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="200" cy="200" r="172" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 6"
+                    opacity="0.65" />
+                  <path d="M 60 120 L 120 50 L 280 50 L 340 120 L 360 250 L 310 340 L 90 340 L 40 250 Z"
+                    stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.75" />
+                  <circle cx="120" cy="50" r="3" fill="#0284c7" />
+                  <circle cx="280" cy="50" r="3" fill="#d97706" />
+                  <circle cx="340" cy="120" r="3" fill="#0284c7" />
+                  <circle cx="360" cy="250" r="3" fill="#d97706" />
+                  <circle cx="310" cy="340" r="3" fill="#0284c7" />
+                  <circle cx="90" cy="340" r="3" fill="#0284c7" />
+                </svg>
+              </div>
+
+              <!-- Profile Photo: Generous, crisp circular framing with subtle hover scale -->
+              <div
+                class="hero-enter-photo group relative z-10 p-1.5 rounded-full bg-white border border-surface-border shadow-sm hover:border-slate-300 transition-all duration-300 hover:shadow-md">
+                <div
+                  class="relative p-1 rounded-full border border-accent/20 bg-surface-subtle overflow-hidden transition-colors duration-300 group-hover:border-accent/40">
+                  <img src="assets/profile.jpg" alt="Portrait of Gulam Saba Uddin, Full-Stack Developer & AI Enthusiast"
+                    class="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.015]"
+                    loading="eager">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- STATS STRIP / ACADEMIC & PROFESSIONAL CREDIBILITY -->
+    <!-- ================================================== -->
+    <section class="border-b border-surface-border bg-gradient-to-r from-accent-subtle via-white to-ember-subtle py-8" aria-label="Key Academic and Professional Highlights">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="stats-container grid grid-cols-2 md:grid-cols-4 gap-6 divide-y md:divide-y-0 md:divide-x divide-surface-border">
+
+          <!-- Stat 1: CGPA -->
+          <div class="stat-box flex flex-col items-center md:items-start md:px-6 first:pl-0 pt-4 md:pt-0">
+            <div class="flex items-baseline gap-1">
+              <span class="font-mono text-3xl font-bold tracking-tight text-charcoal">9.11</span>
+              <span class="font-mono text-xs font-semibold text-accent">/ 10</span>
+            </div>
+            <span class="text-xs font-mono uppercase tracking-wider text-charcoal-muted mt-1">
+              Diploma CGPA
+            </span>
+            <span class="text-[11px] text-charcoal-light mt-0.5">Computer Science &amp; Eng.</span>
+          </div>
+
+          <!-- Stat 2: ECET -->
+          <div class="stat-box flex flex-col items-center md:items-start md:px-6 pt-4 md:pt-0">
+            <div class="flex items-baseline gap-1.5">
+              <span class="font-mono text-3xl font-bold tracking-tight text-charcoal">ECET</span>
+            </div>
+            <span class="text-xs font-mono uppercase tracking-wider text-emerald-600 mt-1">
+              State Qualified
+            </span>
+            <span class="text-[11px] text-charcoal-light mt-0.5">Engineering Lateral Entry</span>
+          </div>
+
+          <!-- Stat 3: Hackathon -->
+          <div class="stat-box flex flex-col items-center md:items-start md:px-6 pt-4 md:pt-0">
+            <div class="flex items-baseline gap-1">
+              <span class="font-mono text-2xl sm:text-3xl font-bold tracking-tight text-charcoal">iQOO</span>
+              <span class="font-mono text-xs font-medium text-accent">2026</span>
+            </div>
+            <span class="text-xs font-mono uppercase tracking-wider text-charcoal-muted mt-1">
+              Hackathon Participant
+            </span>
+            <span class="text-[11px] text-charcoal-light mt-0.5">30-Hr Hyderabad Battle</span>
+          </div>
+
+          <!-- Stat 4: Internship -->
+          <div class="stat-box flex flex-col items-center md:items-start md:px-6 pt-4 md:pt-0">
+            <div class="flex items-baseline gap-1">
+              <span class="font-mono text-2xl sm:text-3xl font-bold tracking-tight text-charcoal">Intern</span>
+            </div>
+            <span class="text-xs font-mono uppercase tracking-wider text-ember mt-1">
+              Startup Developer
+            </span>
+            <span class="text-[11px] text-charcoal-light mt-0.5">Active Software Practice</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- ABOUT SECTION -->
+    <!-- ================================================== -->
+    <section id="about" class="py-20 md:py-28 border-b border-surface-border bg-[#fafafa]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="about-container reveal-item grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+
+          <!-- Column 1: Section Header & Authentic Snapshot -->
+          <div class="lg:col-span-4">
+            <div class="lg:sticky lg:top-24">
+              <div class="about-enter-heading">
+                <span class="text-xs font-mono uppercase tracking-wider text-accent font-semibold block mb-2">
+                  About Me
+                </span>
+                <h2 class="text-3xl font-extrabold tracking-tight text-charcoal leading-tight">
+                  Engineering Beyond the Classroom
+                </h2>
+                <p class="text-sm text-charcoal-muted mt-3 leading-relaxed">
+                  Combining rigorous computer science fundamentals with active startup software engineering.
+                </p>
+              </div>
+
+              <!-- Profile Snapshot Card -->
+              <div
+                class="about-enter-visual mt-8 flex items-center gap-4 p-3.5 bg-white rounded-lg border border-surface-border shadow-2xs max-w-xs">
+                <img src="assets/profile.jpg" alt="Gulam Saba Uddin profile snapshot"
+                  class="w-12 h-12 rounded-full object-cover object-top border border-accent/20 flex-shrink-0">
+                <div class="flex flex-col">
+                  <span class="font-bold text-xs text-charcoal">Gulam Saba Uddin</span>
+                  <span class="text-[11px] text-charcoal-muted font-mono">B.Tech CSE Student</span>
+                  <span class="text-[10px] text-emerald-600 font-mono mt-0.5 flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Interning at Startup
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Crisp Editorial Narrative -->
+          <div class="lg:col-span-8 space-y-6">
+
+            <!-- Academic Foundation -->
+            <div class="about-enter-body p-6 bg-white rounded-lg border border-surface-border shadow-2xs">
+              <span class="text-xs font-mono text-accent uppercase tracking-wider font-semibold block mb-1.5">
+                Academic Foundation
+              </span>
+              <h3 class="text-lg font-bold text-charcoal mb-2">
+                Disciplined Computer Science Fundamentals
+              </h3>
+              <p class="text-charcoal-muted text-sm leading-relaxed mb-4">
+                Completed a Diploma in Computer Science and Engineering with a <strong
+                  class="text-charcoal font-semibold">9.11 CGPA</strong>, establishing a strong foundation in data
+                structures, algorithms, and relational database systems. Qualified for state-level lateral entry through
+                <strong class="text-charcoal font-semibold">ECET</strong> into the B.Tech CSE program.
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs font-mono text-charcoal-muted">
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded shadow-2xs">Diploma CSE
+                  &bull; 9.11 CGPA</span>
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded shadow-2xs">ECET
+                  Qualified</span>
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded shadow-2xs">B.Tech
+                  CSE</span>
+              </div>
+            </div>
+
+            <!-- Focus Statement -->
+            <div
+              class="about-enter-body p-5 bg-white rounded-lg border-l-2 border-accent border border-surface-border shadow-2xs text-sm text-charcoal-muted leading-relaxed">
+              <p class="italic text-charcoal font-medium">
+                &ldquo;My focus is simple: master core computer science fundamentals, write dependable code, and ship
+                software that solves real problems.&rdquo;
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- SKILLS SECTION: FOCUSED HORIZONTAL SCROLL EXPERIENCE -->
+    <!-- ================================================== -->
+    <section id="skills" class="skills-scroll-section relative border-b border-surface-border bg-white" data-section="skills">
+      <div class="skills-sticky-viewport md:sticky md:top-16 md:h-[calc(100vh-4rem)] flex flex-col justify-between py-6 sm:py-8 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full overflow-hidden">
+
+        <!-- Top Header & Category Filter Controls -->
+        <div class="reveal-heading">
+          <div class="flex items-center justify-between gap-4 mb-2">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-wider text-accent font-semibold block mb-1">
+                Technical Toolkit
+              </span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-charcoal">
+                Skills Experience
+              </h2>
+            </div>
+            <!-- Decorative 3D Wireframe Octahedron -->
+            <div id="skills-3d-decor" class="mini-3d-canvas w-10 h-10 hidden sm:flex items-center justify-center flex-shrink-0 opacity-80" aria-hidden="true"></div>
+          </div>
+
+          <p class="text-charcoal-muted text-xs sm:text-sm mb-4 max-w-xl">
+            Horizontal scroll experience through core technical competencies. One scroll reveals one focused skill card.
+          </p>
+
+          <!-- Category Filter Bar & Navigation Progress Controls -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-3 border-b border-surface-border">
+
+            <!-- Category Switcher Tabs -->
+            <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-none py-1" id="skill-categories-nav" role="tablist" aria-label="Skill Categories">
+              <button type="button" role="tab" aria-selected="true" data-category="languages"
+                class="skill-cat-btn px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-mono font-medium transition-all bg-charcoal text-white shadow-2xs whitespace-nowrap">
+                Languages <span class="text-[10px] opacity-75 font-normal ml-0.5">(6)</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-category="frontend"
+                class="skill-cat-btn px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-mono font-medium transition-all bg-surface-warm text-charcoal hover:bg-slate-200 border border-surface-border whitespace-nowrap">
+                Frontend <span class="text-[10px] opacity-75 font-normal ml-0.5">(3)</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-category="backend"
+                class="skill-cat-btn px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-mono font-medium transition-all bg-surface-warm text-charcoal hover:bg-slate-200 border border-surface-border whitespace-nowrap">
+                Backend <span class="text-[10px] opacity-75 font-normal ml-0.5">(4)</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-category="database"
+                class="skill-cat-btn px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-mono font-medium transition-all bg-surface-warm text-charcoal hover:bg-slate-200 border border-surface-border whitespace-nowrap">
+                Database <span class="text-[10px] opacity-75 font-normal ml-0.5">(2)</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-category="tools"
+                class="skill-cat-btn px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-mono font-medium transition-all bg-surface-warm text-charcoal hover:bg-slate-200 border border-surface-border whitespace-nowrap">
+                Tools <span class="text-[10px] opacity-75 font-normal ml-0.5">(5)</span>
+              </button>
+            </div>
+
+            <!-- Carousel Controls: Counter, Dots, Arrow Buttons -->
+            <div class="hidden md:flex  items-center gap-3 self-end sm:self-center">
+              <!-- Counter e.g. 01 / 06 -->
+              <div class="font-mono text-xs font-semibold text-charcoal flex items-center gap-1 bg-surface-warm px-2.5 py-1 rounded border border-surface-border">
+                <span id="skill-counter-current" class="text-accent font-bold">01</span>
+                <span class="text-charcoal-light">/</span>
+                <span id="skill-counter-total" class="text-charcoal-muted">06</span>
+              </div>
+
+              <!-- Dot Indicators Track -->
+              <div id="skill-dots-track" class="flex items-center gap-1.5 px-1" aria-label="Skill slide indicators">
+                <!-- Dynamically populated -->
+              </div>
+
+              <!-- Prev / Next Controls -->
+              <div class="flex items-center gap-1">
+                <button type="button" id="skill-prev-btn" aria-label="Previous skill card"
+                  class="w-8 h-8 rounded border border-surface-border bg-white hover:bg-surface-subtle flex items-center justify-center text-charcoal hover:text-accent transition-colors disabled:opacity-30 disabled:pointer-events-none">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button type="button" id="skill-next-btn" aria-label="Next skill card"
+                  class="w-8 h-8 rounded border border-surface-border bg-white hover:bg-surface-subtle flex items-center justify-center text-charcoal hover:text-accent transition-colors disabled:opacity-30 disabled:pointer-events-none">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Stage Viewport Container -->
+        <div class="skills-stage-container relative w-full my-auto py-4" id="skills-stage-container">
+          <div id="skills-track" class="relative flex items-stretch gap-6 will-change-transform">
+            <!-- Focused Skill Cards dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Footer Guidance -->
+        <div class="flex items-center justify-between text-[11px] font-mono text-charcoal-muted pt-2.5 border-t border-surface-border/60">
+          <div class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+            <span>Desktop: Scroll page or use arrow keys &bull; Mobile: Swipe card</span>
+          </div>
+          <span class="text-charcoal-light hidden sm:inline font-mono">One Card Focused</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- PROJECTS SECTION (Showcase Presentation) -->
+    <!-- ================================================== -->
+    <section id="projects" class="py-20 md:py-28 border-b border-surface-border bg-[#fafafa]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header with Small 3D Geometric Decor -->
+        <div class="flex items-start justify-between gap-6 mb-12">
+          <div class="max-w-2xl reveal-heading">
+            <span class="text-xs font-mono uppercase tracking-wider text-accent font-semibold block mb-2">
+              Selected Work
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-charcoal">
+              Featured Projects
+            </h2>
+            <p class="text-charcoal-muted text-sm sm:text-base mt-2 leading-relaxed">
+              Curated software builds highlighting architecture, practical utility, and functional delivery.
+            </p>
+          </div>
+          <!-- Decorative 3D Wireframe Icosahedron -->
+          <div id="projects-3d-decor" class="mini-3d-canvas w-12 h-12 hidden sm:flex items-center justify-center flex-shrink-0 opacity-80" aria-hidden="true"></div>
+        </div>
+
+        <!-- Refined Projects Grid: 2x2 Clean Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+          <!-- ================================================== -->
+          <!-- PROJECT 1: KAAMCONNECT -->
+          <!-- ================================================== -->
+          <article
+            class="project-card reveal-card p-6 sm:p-8 bg-white rounded-xl border border-surface-border shadow-xs flex flex-col justify-between">
+            <div>
+              <!-- Header Meta: Category + One relevant link -->
+              <div class="flex items-center justify-between gap-4 pb-4 mb-5 border-b border-surface-border">
+                <span
+                  class="px-2.5 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider bg-accent-subtle text-accent border border-accent-border rounded">
+                  Major Project &bull; Full-Stack Web
+                </span>
+                <a href="https://github.com/gulamsabauddin1" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-accent hover:text-accent-hover transition-colors"
+                  aria-label="View KaamConnect repository on GitHub">
+                  <span>GitHub</span>
+                  <svg class="w-3.5 h-3.5 project-arrow-shift transition-transform duration-200" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+
+              <!-- 1. What it is -->
+              <h3 class="text-2xl font-extrabold text-charcoal tracking-tight">
+                KaamConnect
+              </h3>
+              <p class="text-sm font-semibold text-accent mt-0.5 mb-3">
+                Hyperlocal Services &amp; Neighborhood Commerce Platform
+              </p>
+
+              <!-- 2. Concise Summary -->
+              <p class="text-charcoal-muted text-sm leading-relaxed mb-4">
+                Local-services and neighborhood-commerce platform for Hyderabad, connecting customers with nearby service providers and local shops.
+              </p>
+
+              <!-- Architecture Visual: Compact 4-Node Pipeline with Animated Pulse -->
+              <div class="arch-container my-4 p-3 bg-surface-warm rounded-lg border border-surface-border transition-colors">
+                <div class="text-[10px] font-mono uppercase tracking-wider text-charcoal-light mb-2 flex items-center justify-between">
+                  <span>Architecture Flow</span>
+                  <span class="text-[9px] text-accent font-semibold">Live Pipeline</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1.5 items-center text-center">
+                  <div class="arch-node px-1.5 py-1 rounded bg-white border border-surface-border text-[10px] sm:text-[11px] font-mono font-medium text-charcoal shadow-2xs">
+                    Browser
+                  </div>
+                  <div class="arch-node px-1.5 py-1 rounded bg-white border border-surface-border text-[10px] sm:text-[11px] font-mono font-medium text-charcoal shadow-2xs">
+                    Flask
+                  </div>
+                  <div class="arch-node px-1.5 py-1 rounded bg-white border border-surface-border text-[10px] sm:text-[11px] font-mono font-medium text-charcoal shadow-2xs">
+                    Node / Express
+                  </div>
+                  <div class="arch-node px-1.5 py-1 rounded bg-white border border-surface-border text-[10px] sm:text-[11px] font-mono font-medium text-charcoal shadow-2xs">
+                    Supabase
+                  </div>
+                </div>
+                <div class="arch-pulse-track mt-2 h-1">
+                  <div class="arch-pulse-line"></div>
+                </div>
+              </div>
+
+              <!-- 3. Key Capabilities (Concise, 4 items) -->
+              <div class="mb-5">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-charcoal font-semibold block mb-2">
+                  Key Capabilities
+                </span>
+                <div class="grid grid-cols-2 gap-2 text-xs text-charcoal-muted">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">Service Discovery</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">Booking &amp; Orders</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">OTP Verification</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">Multilingual Support</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. Technology Stack & Action -->
+            <div class="pt-4 border-t border-surface-border">
+              <div class="flex flex-wrap items-center gap-1.5 mb-3.5">
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded text-[11px] font-mono text-charcoal">Flask</span>
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded text-[11px] font-mono text-charcoal">Node.js</span>
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded text-[11px] font-mono text-charcoal">Express</span>
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded text-[11px] font-mono text-charcoal">Supabase</span>
+              </div>
+              <a href="https://github.com/gulamsabauddin1" target="_blank" rel="noopener noreferrer"
+                class="interactive-btn inline-flex items-center gap-2 text-xs font-mono font-semibold text-charcoal hover:text-accent transition-colors">
+                <span>View Source Code on GitHub</span>
+                <span class="arrow-shift">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ================================================== -->
+          <!-- PROJECT 2: VEHICLE RENTAL MANAGEMENT SYSTEM -->
+          <!-- ================================================== -->
+          <article
+            class="project-card reveal-card p-6 sm:p-8 bg-white rounded-xl border border-surface-border shadow-xs flex flex-col justify-between">
+            <div>
+              <!-- Header Meta: Category + One relevant link -->
+              <div class="flex items-center justify-between gap-4 pb-4 mb-5 border-b border-surface-border">
+                <span
+                  class="px-2.5 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider bg-ember-subtle text-ember border border-ember-border rounded">
+                  Major Project &bull; Java Desktop System
+                </span>
+                <a href="https://github.com/gulamsabauddin1" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-accent hover:text-accent-hover transition-colors"
+                  aria-label="View Vehicle Rental Management System on GitHub">
+                  <span>GitHub</span>
+                  <svg class="w-3.5 h-3.5 project-arrow-shift transition-transform duration-200" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+
+              <!-- 1. What it is -->
+              <h3 class="text-2xl font-extrabold text-charcoal tracking-tight">
+                Vehicle Rental Management System
+              </h3>
+              <p class="text-sm font-semibold text-accent mt-0.5 mb-3">
+                Desktop Fleet Administration &amp; Computerized Billing
+              </p>
+
+              <!-- 2. Concise Summary -->
+              <p class="text-charcoal-muted text-sm leading-relaxed mb-4">
+                Desktop enterprise application engineered in Java to manage commercial vehicle fleets, customer dispatches, return settlements, and automated fare billing.
+              </p>
+
+              <!-- Lifecycle Flow: Vehicle → Rental → Return → Bill -->
+              <div class="flow-container my-4 p-3 bg-surface-warm rounded-lg border border-surface-border transition-colors">
+                <div class="text-[10px] font-mono uppercase tracking-wider text-charcoal-light mb-2 flex items-center justify-between">
+                  <span>Fleet Lifecycle</span>
+                  <span class="text-[9px] text-ember font-semibold">Workflow States</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1.5 items-center text-center">
+                  <div class="flow-step px-1.5 py-1 rounded bg-white border border-surface-border text-[10px] sm:text-[11px] font-mono font-medium text-charcoal shadow-2xs">
+                    Vehicle
+                  </div>
+                  <div class="flow-step px-1.5 py-1 rounded bg-white border border-surface-border text-[10px] sm:text-[11px] font-mono font-medium text-charcoal shadow-2xs">
+                    Rental
+                  </div>
+                  <div class="flow-step px-1.5 py-1 rounded bg-white border border-surface-border text-[10px] sm:text-[11px] font-mono font-medium text-charcoal shadow-2xs">
+                    Return
+                  </div>
+                  <div class="flow-step px-1.5 py-1 rounded bg-white border border-surface-border text-[10px] sm:text-[11px] font-mono font-medium text-charcoal shadow-2xs">
+                    Bill
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Key Capabilities (Concise, 4 items) -->
+              <div class="mb-5">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-charcoal font-semibold block mb-2">
+                  Key Capabilities
+                </span>
+                <div class="grid grid-cols-2 gap-2 text-xs text-charcoal-muted">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">Fleet Inventory</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">Automated Billing</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">Dispatch Lifecycle</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">Relational Database</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. Technology Stack & Action -->
+            <div class="pt-4 border-t border-surface-border">
+              <div class="flex flex-wrap items-center gap-1.5 mb-3.5">
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded text-[11px] font-mono text-charcoal">Java</span>
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded text-[11px] font-mono text-charcoal">Java AWT</span>
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded text-[11px] font-mono text-charcoal">JDBC</span>
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded text-[11px] font-mono text-charcoal">MySQL</span>
+              </div>
+              <a href="https://github.com/gulamsabauddin1" target="_blank" rel="noopener noreferrer"
+                class="interactive-btn inline-flex items-center gap-2 text-xs font-mono font-semibold text-charcoal hover:text-accent transition-colors">
+                <span>View Source Code on GitHub</span>
+                <span class="arrow-shift">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ================================================== -->
+          <!-- PROJECT 3: DAWASETU EDGE -->
+          <!-- ================================================== -->
+          <article
+            class="project-card reveal-card p-6 sm:p-8 bg-white rounded-xl border border-surface-border shadow-xs flex flex-col justify-between">
+            <div>
+              <!-- Header Meta: Cheerful Positive Status Badge + Live Demo link -->
+              <div class="flex items-center justify-between gap-4 pb-4 mb-5 border-b border-surface-border">
+                <span
+                  class="inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200 rounded">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> In Progress &bull; Concept Prototype
+                </span>
+                <a href="https://gulamsabauddin.github.io/DawaSetu-Demo/" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-accent hover:text-accent-hover transition-colors"
+                  aria-label="View DawaSetu Live Demo">
+                  <span>View Live Demo</span>
+                  <svg class="w-3.5 h-3.5 project-arrow-shift transition-transform duration-200" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+
+              <!-- 1. What it is -->
+              <h3 class="text-2xl font-extrabold text-charcoal tracking-tight">
+                DawaSetu Edge
+              </h3>
+              <p class="text-sm font-semibold text-accent mt-0.5 mb-3">
+                Offline-First AI Health Companion (iQOO Hackathon 2026)
+              </p>
+
+              <!-- 2. Concise Summary -->
+              <p class="text-charcoal-muted text-sm leading-relaxed mb-6">
+                Offline-first AI health companion concept developed during the iQOO Hackathon 2026 to interpret medical records without active cloud connectivity.
+              </p>
+
+              <!-- 3. Key Capabilities (Concise, 4 items) -->
+              <div class="mb-6">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-charcoal font-semibold block mb-2">
+                  Key Capabilities
+                </span>
+                <div class="grid grid-cols-2 gap-2.5 text-xs text-charcoal-muted">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">OCR Document Scan</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">Health Vault</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">Voice Q&amp;A</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">Reminders</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. Technology Stack & Action -->
+            <div class="pt-4 border-t border-surface-border">
+              <div class="flex flex-wrap items-center gap-1.5 mb-3.5">
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded text-[11px] font-mono text-charcoal">AI / OCR</span>
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded text-[11px] font-mono text-charcoal">JavaScript</span>
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded text-[11px] font-mono text-charcoal">Web Prototype</span>
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded text-[11px] font-mono text-charcoal">Offline Storage</span>
+              </div>
+              <a href="https://gulamsabauddin.github.io/DawaSetu-Demo/" target="_blank" rel="noopener noreferrer"
+                class="interactive-btn inline-flex items-center gap-2 text-xs font-mono font-semibold text-accent hover:text-accent-hover transition-colors">
+                <span>View Live Demo</span>
+                <span class="arrow-shift">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ================================================== -->
+          <!-- PROJECT 4: IMAGE COMPRESSOR (Extremely Compact) -->
+          <!-- ================================================== -->
+          <article
+            class="project-card reveal-card p-6 sm:p-8 bg-white rounded-xl border border-surface-border shadow-xs flex flex-col justify-between">
+            <div>
+              <!-- Header Meta: Category + One relevant link -->
+              <div class="flex items-center justify-between gap-4 pb-4 mb-5 border-b border-surface-border">
+                <span
+                  class="px-2.5 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider bg-surface-subtle text-charcoal border border-surface-border rounded">
+                  Python Utility &bull; Supporting Build
+                </span>
+                <a href="https://github.com/gulamsabauddin1" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-accent hover:text-accent-hover transition-colors"
+                  aria-label="View Image Compressor on GitHub">
+                  <span>GitHub</span>
+                  <svg class="w-3.5 h-3.5 project-arrow-shift transition-transform duration-200" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+
+              <!-- 1. What it is -->
+              <h3 class="text-2xl font-extrabold text-charcoal tracking-tight">
+                Image Compressor &amp; Format Converter
+              </h3>
+              <p class="text-sm font-semibold text-accent mt-0.5 mb-3">
+                High-Efficiency Media Processing Utility
+              </p>
+
+              <!-- 2. Concise Summary -->
+              <p class="text-charcoal-muted text-sm leading-relaxed mb-6">
+                Lightweight Python media utility that automates batch image payload compression and cross-format transformations without sacrificing visual clarity.
+              </p>
+
+              <!-- 3. Key Capabilities (Extremely compact) -->
+              <div class="mb-6">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-charcoal font-semibold block mb-2">
+                  Key Capabilities
+                </span>
+                <div class="grid grid-cols-2 gap-2.5 text-xs text-charcoal-muted">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-violet-400 flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">Variable Compression</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-violet-400 flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">Format Conversion</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-violet-400 flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">NumPy Pixel Array</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-violet-400 flex-shrink-0"></span>
+                    <span class="text-charcoal font-medium">CLI Pipeline</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. Technology Stack & Action -->
+            <div class="pt-4 border-t border-surface-border">
+              <div class="flex flex-wrap items-center gap-1.5 mb-3.5">
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded text-[11px] font-mono text-charcoal">Python</span>
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded text-[11px] font-mono text-charcoal">Pillow (PIL)</span>
+                <span class="px-2.5 py-1 bg-surface-subtle border border-surface-border rounded text-[11px] font-mono text-charcoal">NumPy</span>
+              </div>
+              <a href="https://github.com/gulamsabauddin1" target="_blank" rel="noopener noreferrer"
+                class="interactive-btn inline-flex items-center gap-2 text-xs font-mono font-semibold text-charcoal hover:text-accent transition-colors">
+                <span>View Source Code on GitHub</span>
+                <span class="arrow-shift">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- CONTACT SECTION -->
+    <!-- ================================================== -->
+    <section id="contact" class="contact-section py-20 md:py-28 border-b border-surface-border bg-white" data-section="contact">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+          <!-- Column 1: Editorial Direct Channels -->
+          <div class="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              <div class="contact-enter-heading">
+                <div class="flex items-center justify-between gap-4 mb-2">
+                  <span class="text-xs font-mono uppercase tracking-wider text-accent font-semibold block">
+                    Inquiries &amp; Collaboration
+                  </span>
+                  <div id="contact-3d-decor" class="mini-3d-canvas w-10 h-10 hidden sm:flex items-center justify-center flex-shrink-0 opacity-80" aria-hidden="true"></div>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-charcoal leading-tight">
+                  Let's Build Something Together
+                </h2>
+              </div>
+              <p class="contact-enter-desc text-charcoal-muted text-sm sm:text-base mt-4 leading-relaxed">
+                Whether you're exploring internship opportunities, open-source projects, or software discussions, my
+                inbox is always open.
+              </p>
+
+              <!-- Direct Channels List -->
+              <div class="contact-enter-channels mt-8 space-y-4">
+
+                <!-- Email Link -->
+                <a href="mailto:gulamsabauddin1@gmail.com"
+                  class="interactive-btn flex items-center gap-3 p-3.5 rounded-lg border border-surface-border bg-[#fafafa] hover:border-accent hover:bg-white hover:-translate-y-0.5 transition-all group shadow-2xs">
+                  <div
+                    class="w-9 h-9 rounded bg-accent-subtle text-accent flex items-center justify-center font-mono text-sm border border-accent-border group-hover:bg-accent group-hover:text-white transition-colors">
+                    @
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-charcoal-light">Email Direct</span>
+                    <span
+                      class="text-xs sm:text-sm font-mono font-medium text-charcoal group-hover:text-accent transition-colors">
+                      gulamsabauddin1@gmail.com
+                    </span>
+                  </div>
+                </a>
+
+                <!-- GitHub Link -->
+                <a href="https://github.com/gulamsabauddin1" target="_blank" rel="noopener noreferrer"
+                  class="interactive-btn flex items-center gap-3 p-3.5 rounded-lg border border-surface-border bg-[#fafafa] hover:border-slate-400 hover:bg-white hover:-translate-y-0.5 transition-all group shadow-2xs">
+                  <div
+                    class="w-9 h-9 rounded bg-slate-100 text-charcoal flex items-center justify-center font-mono text-sm border border-surface-border group-hover:bg-charcoal group-hover:text-white transition-colors">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path fill-rule="evenodd"
+                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                        clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-charcoal-light">Repositories</span>
+                    <span
+                      class="text-xs sm:text-sm font-mono font-medium text-charcoal group-hover:text-accent transition-colors">
+                      github.com/gulamsabauddin1
+                    </span>
+                  </div>
+                </a>
+
+                <!-- LinkedIn Link -->
+                <a href="https://www.linkedin.com/in/gulam-saba-uddin-4b93a4325/" target="_blank"
+                  rel="noopener noreferrer"
+                  class="interactive-btn flex items-center gap-3 p-3.5 rounded-lg border border-surface-border bg-[#fafafa] hover:border-[#0077b5] hover:bg-white hover:-translate-y-0.5 transition-all group shadow-2xs">
+                  <div
+                    class="w-9 h-9 rounded bg-sky-50 text-[#0077b5] flex items-center justify-center font-mono text-sm border border-sky-100 group-hover:bg-[#0077b5] group-hover:text-white transition-colors">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-charcoal-light">Professional
+                      Network</span>
+                    <span
+                      class="text-xs sm:text-sm font-mono font-medium text-charcoal group-hover:text-accent transition-colors">
+                      linkedin.com/in/gulam-saba-uddin
+                    </span>
+                  </div>
+                </a>
+
+              </div>
+            </div>
+
+            <!-- Location Note -->
+            <div class="mt-8 pt-6 border-t border-surface-border text-xs font-mono text-charcoal-light">
+              <span>Location: Hyderabad, Telangana, India</span>
+            </div>
+          </div>
+
+          <!-- Column 2: Direct Message Form -->
+          <div class="lg:col-span-7 contact-enter-form">
+            <div class="p-6 sm:p-8 bg-[#fafafa] rounded-xl border border-surface-border shadow-xs">
+
+              <div class="mb-6">
+                <h3 class="text-lg font-bold text-charcoal">Send a Direct Message</h3>
+                <p class="text-xs text-charcoal-muted mt-1">
+                  Leave a note with your details for a quick response.
+                </p>
+              </div>
+
+              <!-- Contact Form -->
+              <form id="contact-form" class="space-y-5" novalidate>
+
+                <div>
+                  <label for="contact-name"
+                    class="block text-xs font-mono uppercase tracking-wider text-charcoal mb-1.5 font-medium">
+                    Your Name <span class="text-accent">*</span>
+                  </label>
+                  <input type="text" id="contact-name" name="name" required placeholder="e.g. Jane Doe"
+                    class="w-full px-4 py-2.5 bg-white border border-surface-border rounded text-sm text-charcoal placeholder:text-charcoal-light focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all">
+                </div>
+
+                <div>
+                  <label for="contact-email"
+                    class="block text-xs font-mono uppercase tracking-wider text-charcoal mb-1.5 font-medium">
+                    Email Address <span class="text-accent">*</span>
+                  </label>
+                  <input type="email" id="contact-email" name="email" required placeholder="jane@example.com"
+                    class="w-full px-4 py-2.5 bg-white border border-surface-border rounded text-sm text-charcoal placeholder:text-charcoal-light focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all">
+                </div>
+
+                <div>
+                  <label for="contact-message"
+                    class="block text-xs font-mono uppercase tracking-wider text-charcoal mb-1.5 font-medium">
+                    Message <span class="text-accent">*</span>
+                  </label>
+                  <textarea id="contact-message" name="message" rows="4" required
+                    placeholder="Tell me about your project, idea, or role..."
+                    class="w-full px-4 py-2.5 bg-white border border-surface-border rounded text-sm text-charcoal placeholder:text-charcoal-light focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all resize-y"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="submit-btn"
+                  class="interactive-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-mono font-semibold uppercase tracking-wider text-white bg-charcoal hover:bg-accent rounded shadow-xs focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">
+                  <span>Submit Message</span>
+                  <svg class="w-3.5 h-3.5 arrow-shift" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </button>
+
+              </form>
+
+              <!-- Client-Side Response Notice -->
+              <div id="form-feedback"
+                class="hidden mt-6 p-4 rounded-lg bg-accent-subtle border border-accent-border text-xs leading-relaxed text-charcoal">
+                <!-- Injected via JavaScript upon form submission -->
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================== -->
+  <!-- FOOTER -->
+  <!-- ================================================== -->
+  <footer class="border-t border-surface-border bg-white py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+
+      <div class="flex items-center gap-3">
+        <span
+          class="w-6 h-6 rounded bg-charcoal text-white font-mono text-[10px] font-bold flex items-center justify-center">
+          GS
+        </span>
+        <span class="text-xs font-mono text-charcoal-muted">
+          &copy; 2026 Gulam Saba Uddin
+        </span>
+      </div>
+
+      <div class="flex items-center gap-6 text-xs font-mono text-charcoal-muted">
+        <a href="https://github.com/gulamsabauddin1" target="_blank" rel="noopener noreferrer"
+          class="hover:text-accent transition-colors">
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/gulam-saba-uddin-4b93a4325/" target="_blank" rel="noopener noreferrer"
+          class="hover:text-accent transition-colors">
+          LinkedIn
+        </a>
+        <a href="mailto:gulamsabauddin1@gmail.com" class="hover:text-accent transition-colors">
+          Email
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Three.js CDN for Step 2 Geometric Visual Identity -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- ================================================== -->
+  <!-- VANILLA JAVASCRIPT LOGIC -->
+  <!-- ================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // 1. Mobile Menu Toggle Handling
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileNav = document.getElementById('mobile-nav');
+      const hamburgerIcon = document.getElementById('hamburger-icon');
+      const closeIcon = document.getElementById('close-icon');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      if (mobileBtn && mobileNav) {
+        mobileBtn.addEventListener('click', () => {
+          const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+          mobileBtn.setAttribute('aria-expanded', !isExpanded);
+          mobileNav.classList.toggle('hidden');
+          hamburgerIcon.classList.toggle('hidden');
+          closeIcon.classList.toggle('hidden');
+        });
+
+        // Close menu upon navigation click
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileNav.classList.add('hidden');
+            hamburgerIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // 2. Active Section Highlighting in Desktop Navbar via IntersectionObserver
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll('section[id]');
+
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const currentId = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              const href = link.getAttribute('href').substring(1);
+              if (href === currentId) {
+                link.classList.add('active', 'text-charcoal');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, {
+        rootMargin: '-30% 0px -60% 0px'
+      });
+
+      sections.forEach(sec => sectionObserver.observe(sec));
+
+      // 3. Staggered & Scroll Reveal Animations
+      const revealItems = document.querySelectorAll(
+        '.reveal-item, .reveal-heading, .reveal-card, .reveal-row, .stats-container, .project-card, .about-container, .contact-section'
+      );
+
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -20px 0px'
+      });
+
+      revealItems.forEach(el => revealObserver.observe(el));
+
+      // 4. Horizontal Scrolling Skill Experience: One Scroll = One Focused Skill Card
+      initSkillsHorizontalScroll();
+
+      function initSkillsHorizontalScroll() {
+        const skillsSection = document.getElementById('skills');
+        const stageContainer = document.getElementById('skills-stage-container');
+        const skillsTrack = document.getElementById('skills-track');
+        const dotsTrack = document.getElementById('skill-dots-track');
+        const counterCurrent = document.getElementById('skill-counter-current');
+        const counterTotal = document.getElementById('skill-counter-total');
+        const prevBtn = document.getElementById('skill-prev-btn');
+        const nextBtn = document.getElementById('skill-next-btn');
+        const categoryButtons = document.querySelectorAll('.skill-cat-btn');
+
+        if (!skillsTrack || !dotsTrack || !stageContainer) return;
+
+        const skillsData = {
+          languages: [
+            {
+              name: 'Python',
+              category: 'Languages · Backend / AI',
+              focus: 'Backend Services · System Automation · Machine Learning Logic',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C7.5 2 7 3.8 7 5.5V8h6V9H6c-2.5 0-4 1.5-4 4.5S3.5 18 6 18h2v-2.5c0-1.8.8-3.5 3-3.5h5c1.8 0 3-1.2 3-3V5.5C19 3.8 18.5 2 12 2z"></path><circle cx="9" cy="5" r="0.75" fill="currentColor"></circle><path d="M12 22c4.5 0 5-1.8 5-3.5V16h-6v-1h7c2.5 0 4-1.5 4-4.5S20.5 6 18 6h-2v2.5c0 1.8-.8 3.5-3 3.5h-5c-1.8 0-3 1.2-3 3v3.5C5 20.2 5.5 22 12 22z"></path><circle cx="15" cy="19" r="0.75" fill="currentColor"></circle></svg>'
+            },
+            {
+              name: 'Java',
+              category: 'Languages · OOP',
+              focus: 'Object-Oriented Design · Strong Typing · Enterprise Systems',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19c4.5 1.5 11.5 1.5 16 0"></path><path d="M6 22c3.5 1 8.5 1 12 0"></path><path d="M7 11c0 5 3 7 5 7s5-2 5-7H7z"></path><path d="M17 12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3h-1"></path><path d="M9 3c0 2 1 3 2 4"></path><path d="M13 2c0 2 1 3 2 4"></path></svg>'
+            },
+            {
+              name: 'C++',
+              category: 'Languages · Fundamentals',
+              focus: 'Data Structures · Algorithmic Complexity · Memory Discipline',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8a5 5 0 1 0 0 8"></path><path d="M13 12h3"></path><path d="M14.5 10.5v3"></path><path d="M18.5 12h3"></path><path d="M20 10.5v3"></path><path d="M4 4l-2 8 2 8"></path></svg>'
+            },
+            {
+              name: 'JavaScript',
+              category: 'Languages · Web Runtime',
+              focus: 'Asynchronous Logic · DOM Engineering · Dynamic Interaction',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M16 8v8a2 2 0 0 1-4 0"></path><path d="M8 13.5c.5.8 1.4 1.5 2.5 1.5 1.2 0 2-.6 2-1.5s-.8-1.2-2-1.6c-1.6-.5-2.5-1.1-2.5-2.4 0-1.4 1.2-2.5 2.8-2.5 1.2 0 2.2.6 2.7 1.5"></path></svg>'
+            },
+            {
+              name: 'SQL',
+              category: 'Languages · Relational Storage',
+              focus: 'Declarative Queries · Relational Schema · ACID Constraints',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>'
+            },
+            {
+              name: 'HTML / CSS',
+              category: 'Languages · Web Foundations',
+              focus: 'Semantic Structure · Modern Layouts · Responsive Design Systems',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline><line x1="14" y1="4" x2="10" y2="20"></line></svg>'
+            }
+          ],
+          frontend: [
+            {
+              name: 'React.js',
+              category: 'Frontend · UI Architecture',
+              focus: 'Component Hierarchy · Hook State Management · Virtual DOM',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(0 12 12)"></ellipse><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"></ellipse><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)"></ellipse><circle cx="12" cy="12" r="1.8" fill="currentColor"></circle></svg>'
+            },
+            {
+              name: 'JSX',
+              category: 'Frontend · Declarative Templates',
+              focus: 'Component Syntax · Expressive UI Rendering · Typed Props',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8l-4 4 4 4"></path><path d="M17 8l4 4-4 4"></path><path d="M14 4l-4 16"></path></svg>'
+            },
+            {
+              name: 'Tailwind CSS',
+              category: 'Frontend · Design Systems',
+              focus: 'Utility Classes · Micro-Interactions · Zero Runtime Overhead',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12c.5-2.5 2-4 4.5-4 3.5 0 4 3 6.5 3 2 0 3-1 3.5-3-.5 2.5-2 4-4.5 4-3.5 0-4-3-6.5-3-2 0-3 1-3.5 3z"></path><path d="M2 18c.5-2.5 2-4 4.5-4 3.5 0 4 3 6.5 3 2 0 3-1 3.5-3-.5 2.5-2 4-4.5 4-3.5 0-4-3-6.5-3-2 0-3 1-3.5 3z"></path></svg>'
+            }
+          ],
+          backend: [
+            {
+              name: 'Flask',
+              category: 'Backend · Microservices & APIs',
+              focus: 'Lightweight REST Services · Modular Blueprints · Python APIs',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v5.5L5 18a3 3 0 0 0 2.6 4h8.8a3 3 0 0 0 2.6-4L14 7.5V2"></path><line x1="8.5" y1="2" x2="15.5" y2="2"></line><line x1="7.5" y1="14" x2="16.5" y2="14"></line></svg>'
+            },
+            {
+              name: 'Node.js',
+              category: 'Backend · Event-Driven Runtime',
+              focus: 'Non-Blocking I/O · High-Throughput Handlers · Microservice Routing',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8.5 5v10L12 22l-8.5-5V7L12 2z"></path><path d="M12 22V12"></path><path d="M20.5 7L12 12 3.5 7"></path></svg>'
+            },
+            {
+              name: 'Express.js',
+              category: 'Backend · REST Framework',
+              focus: 'Middleware Chains · Dynamic Routing · HTTP Endpoint Delivery',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path><circle cx="6" cy="12" r="2" fill="currentColor"></circle></svg>'
+            },
+            {
+              name: 'JDBC',
+              category: 'Backend · Database Connectivity',
+              focus: 'Prepared Statements · Connection Pooling · Transaction Management',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="2"></rect><rect x="3" y="14" width="18" height="6" rx="2"></rect><path d="M7 10v4"></path><path d="M17 10v4"></path></svg>'
+            }
+          ],
+          database: [
+            {
+              name: 'PostgreSQL / Supabase',
+              category: 'Database · Data',
+              focus: 'Relational Schemas · Row-Level Security · Modern Backend Engine',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-4.97 0-9 3.58-9 8 0 2.8 1.63 5.25 4.12 6.64L6.5 21l3.86-1.54c.52.09 1.07.14 1.64.14 4.97 0 9-3.58 9-8s-4.03-8-9-8z"></path><circle cx="9" cy="9" r="1" fill="currentColor"></circle><circle cx="15" cy="9" r="1" fill="currentColor"></circle></svg>'
+            },
+            {
+              name: 'MySQL',
+              category: 'Database · Enterprise Storage',
+              focus: 'Structured Queries · Foreign Keys · Transactional Reliability',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"></ellipse><path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6"></path><path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"></path></svg>'
+            }
+          ],
+          tools: [
+            {
+              name: 'Pandas',
+              category: 'Tools · Data Science Analysis',
+              focus: 'DataFrame Manipulation · Tabular Aggregation · Data Cleansing',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line></svg>'
+            },
+            {
+              name: 'NumPy',
+              category: 'Tools · Numerical Computing',
+              focus: 'Vectorized Operations · N-Dimensional Arrays · Matrix Computations',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"></rect><rect x="13" y="4" width="7" height="7" rx="1"></rect><rect x="4" y="13" width="7" height="7" rx="1"></rect><rect x="13" y="13" width="7" height="7" rx="1"></rect></svg>'
+            },
+            {
+              name: 'Pillow (PIL)',
+              category: 'Tools · Image Processing',
+              focus: 'Payload Compression · Format Conversions · Bitmap Manipulation',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>'
+            },
+            {
+              name: 'Git',
+              category: 'Tools · Version Control',
+              focus: 'Branching Strategy · Semantic Commits · Conflict Resolution',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="9" r="3"></circle><line x1="6" y1="9" x2="6" y2="15"></line><path d="M18 12a9 9 0 0 1-9 9"></path></svg>'
+            },
+            {
+              name: 'GitHub',
+              category: 'Tools · Collaboration & CI/CD',
+              focus: 'Pull Requests · Remote Repositories · Collaborative Releases',
+              iconSvg: '<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>'
+            }
+          ]
+        };
+
+        let currentCategory = 'languages';
+        let currentIndex = 0;
+
+        function renderCategory(catKey) {
+          currentCategory = catKey;
+          currentIndex = 0;
+          const skills = skillsData[catKey] || [];
+
+          // Update active category tab button styling
+          categoryButtons.forEach(btn => {
+            const isMatch = btn.getAttribute('data-category') === catKey;
+            btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+            if (isMatch) {
+              btn.className = 'skill-cat-btn px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-mono font-medium transition-all bg-charcoal text-white shadow-2xs whitespace-nowrap';
+            } else {
+              btn.className = 'skill-cat-btn px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-mono font-medium transition-all bg-surface-warm text-charcoal hover:bg-slate-200 border border-surface-border whitespace-nowrap';
+            }
+          });
+
+          // Render Focused Skill Cards
+          skillsTrack.innerHTML = skills.map((item, idx) => `
+            <article class="skill-card-focused w-[82vw] max-w-[320px] sm:max-w-[360px] md:w-[400px] h-[330px] sm:h-[350px] bg-white rounded-2xl border border-surface-border p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:border-accent/40 relative overflow-hidden flex-shrink-0 cursor-pointer" data-skill-index="${idx}">
+              <div class="skill-accent-bar absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-emerald-400"></div>
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="px-2.5 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider bg-surface-warm text-charcoal border border-surface-border rounded-full">
+                    ${item.category}
+                  </span>
+                  <span class="text-xs font-mono text-charcoal-light font-bold">
+                    #${String(idx + 1).padStart(2, '0')}
+                  </span>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-charcoal tracking-tight mb-2">
+                  ${item.name}
+                </h3>
+                <p class="text-xs sm:text-sm text-charcoal-muted leading-relaxed font-normal">
+                  ${item.focus}
+                </p>
+              </div>
+              <div class="pt-4 border-t border-surface-border/70 flex items-center justify-between">
+                <div class="skill-icon-wrap w-14 h-14 rounded-xl bg-surface-warm border border-surface-border flex items-center justify-center p-2.5 text-accent shadow-2xs">
+                  ${item.iconSvg}
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] font-mono uppercase tracking-wider text-charcoal-light block">Focus Scope</span>
+                  <span class="text-xs font-mono font-semibold text-charcoal flex items-center justify-end gap-1.5 mt-0.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Active Stack
+                  </span>
+                </div>
+              </div>
+            </article>
+          `).join('');
+
+          // Render Indicator Dots
+          dotsTrack.innerHTML = skills.map((_, idx) => `
+            <button type="button" class="skill-dot-btn w-2 h-2 rounded-full bg-slate-300 transition-all duration-200" aria-label="Go to skill ${idx + 1}" data-dot-index="${idx}"></button>
+          `).join('');
+
+          // Bind card clicks
+          skillsTrack.querySelectorAll('.skill-card-focused').forEach(card => {
+            card.addEventListener('click', () => {
+              const idx = parseInt(card.getAttribute('data-skill-index'), 10);
+              if (!isNaN(idx)) scrollToCard(idx);
+            });
+          });
+
+          // Bind dot clicks
+          dotsTrack.querySelectorAll('.skill-dot-btn').forEach(dot => {
+            dot.addEventListener('click', () => {
+              const idx = parseInt(dot.getAttribute('data-dot-index'), 10);
+              if (!isNaN(idx)) scrollToCard(idx);
+            });
+          });
+
+          // Measure layout after DOM insert
+          requestAnimationFrame(() => {
+            updateLayoutDimensions();
+            if (resetScroll && isDesktop) {
+              const rect = skillsSection.getBoundingClientRect();
+              if (rect.top < -20) {
+                window.scrollTo({ top: window.scrollY + rect.top, behavior: 'smooth' });
+              }
+            }
+            if (isDesktop) {
+              currentTranslate = offsetStart;
+              targetTranslate = offsetStart;
+              skillsTrack.style.transition = 'none';
+              skillsTrack.style.transform = `translateX(${offsetStart.toFixed(2)}px)`;
+            } else {
+              stageContainer.scrollLeft = 0;
+            }
+            updateActiveCard(0);
+          });
+        }
+
+        let isDesktop = window.innerWidth >= 768;
+        let targetTranslate = 0;
+        let currentTranslate = 0;
+        let offsetStart = 0;
+        let offsetEnd = 0;
+        let isProgrammaticScroll = false;
+        let programmaticScrollTimeout = null;
+
+        function updateLayoutDimensions() {
+          isDesktop = window.innerWidth >= 768;
+          const skills = skillsData[currentCategory] || [];
+          const cards = skillsTrack.querySelectorAll('.skill-card-focused');
+
+          if (isDesktop) {
+            // Tailored scroll distance per card
+            const scrollPerCard = 50;
+            skillsSection.style.height = `${Math.max(140, (skills.length - 1) * scrollPerCard + 100)}vh`;
+            stageContainer.style.overflowX = 'hidden';
+
+            if (cards.length > 0) {
+              const stageWidth = stageContainer.clientWidth;
+              const cardWidth = cards[0].offsetWidth;
+              offsetStart = (stageWidth / 2) - (cards[0].offsetLeft + cardWidth / 2);
+              const lastCard = cards[cards.length - 1];
+              offsetEnd = (stageWidth / 2) - (lastCard.offsetLeft + lastCard.offsetWidth / 2);
+            }
+          } else {
+            skillsSection.style.height = 'auto';
+            skillsTrack.style.transform = 'none';
+          }
+        }
+
+        function updateActiveCard(index) {
+          const cards = skillsTrack.querySelectorAll('.skill-card-focused');
+          const skills = skillsData[currentCategory] || [];
+          if (!cards.length) return;
+
+          currentIndex = Math.max(0, Math.min(index, skills.length - 1));
+
+          cards.forEach((c, idx) => {
+            if (idx === currentIndex) {
+              c.classList.add('is-active');
+              c.setAttribute('aria-current', 'true');
+            } else {
+              c.classList.remove('is-active');
+              c.removeAttribute('aria-current');
+            }
+          });
+
+          // Update counter
+          counterCurrent.textContent = String(currentIndex + 1).padStart(2, '0');
+          counterTotal.textContent = String(skills.length).padStart(2, '0');
+
+          // Update dots
+          const dots = dotsTrack.querySelectorAll('.skill-dot-btn');
+          dots.forEach((dot, idx) => {
+            if (idx === currentIndex) {
+              dot.className = 'skill-dot-btn w-6 h-2 rounded-full bg-accent transition-all duration-300';
+              dot.setAttribute('aria-selected', 'true');
+            } else {
+              dot.className = 'skill-dot-btn w-2 h-2 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-200';
+              dot.setAttribute('aria-selected', 'false');
+            }
+          });
+
+          // Update buttons
+          prevBtn.disabled = (currentIndex === 0);
+          nextBtn.disabled = (currentIndex === skills.length - 1);
+        }
+
+        // Unified smooth navigation to specific card
+        function scrollToCard(targetIdx) {
+          const skills = skillsData[currentCategory] || [];
+          if (!skills.length) return;
+          targetIdx = Math.max(0, Math.min(targetIdx, skills.length - 1));
+
+          if (isDesktop) {
+            const rect = skillsSection.getBoundingClientRect();
+            const sectionTop = window.scrollY + rect.top;
+            const totalScroll = skillsSection.offsetHeight - window.innerHeight;
+
+            if (totalScroll > 0 && skills.length > 1) {
+              const p = targetIdx / (skills.length - 1);
+              const targetY = sectionTop + p * totalScroll;
+
+              isProgrammaticScroll = true;
+              clearTimeout(programmaticScrollTimeout);
+              programmaticScrollTimeout = setTimeout(() => {
+                isProgrammaticScroll = false;
+              }, 600);
+
+              window.scrollTo({ top: targetY, behavior: 'smooth' });
+            }
+          } else {
+            // Mobile: smooth scroll stage container
+            const cards = skillsTrack.querySelectorAll('.skill-card-focused');
+            const targetCard = cards[targetIdx];
+            if (targetCard) {
+              const targetLeft = targetCard.offsetLeft - (stageContainer.clientWidth - targetCard.offsetWidth) / 2;
+              stageContainer.scrollTo({ left: targetLeft, behavior: 'smooth' });
+            }
+          }
+          updateActiveCard(targetIdx);
+        }
+
+        // Desktop Smooth Scroll Render Loop with liquid damping in RAF
+        function renderDesktopScroll() {
+          if (isDesktop) {
+            const rect = skillsSection.getBoundingClientRect();
+            const totalScroll = skillsSection.offsetHeight - window.innerHeight;
+
+            if (totalScroll > 0) {
+              const progress = Math.min(Math.max(-rect.top / totalScroll, 0), 1);
+              targetTranslate = offsetStart + progress * (offsetEnd - offsetStart);
+
+              // Damping interpolation: 0.18 gives a silky, organic spring response
+              const diff = targetTranslate - currentTranslate;
+              if (Math.abs(diff) > 0.15) {
+                currentTranslate += diff * 0.18;
+                skillsTrack.style.transform = `translateX(${currentTranslate.toFixed(2)}px)`;
+              } else if (currentTranslate !== targetTranslate) {
+                currentTranslate = targetTranslate;
+                skillsTrack.style.transform = `translateX(${currentTranslate.toFixed(2)}px)`;
+              }
+
+              // Determine centered active card
+              const skills = skillsData[currentCategory] || [];
+              if (skills.length > 1 && rect.top <= 120 && rect.bottom >= window.innerHeight - 120) {
+                const nearestIndex = Math.min(Math.max(Math.round(progress * (skills.length - 1)), 0), skills.length - 1);
+                if (nearestIndex !== currentIndex && !isProgrammaticScroll) {
+                  updateActiveCard(nearestIndex);
+                }
+              }
+            }
+          }
+          requestAnimationFrame(renderDesktopScroll);
+        }
+        requestAnimationFrame(renderDesktopScroll);
+
+        // Mobile Scroll Listener: detect centered card as user naturally swipes
+        stageContainer.addEventListener('scroll', () => {
+          if (isDesktop) return;
+          const stageCenter = stageContainer.scrollLeft + stageContainer.clientWidth / 2;
+          const cards = skillsTrack.querySelectorAll('.skill-card-focused');
+          let closestIdx = 0;
+          let minDistance = Infinity;
+
+          cards.forEach((card, idx) => {
+            const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+            const dist = Math.abs(cardCenter - stageCenter);
+            if (dist < minDistance) {
+              minDistance = dist;
+              closestIdx = idx;
+            }
+          });
+
+          if (closestIdx !== currentIndex) {
+            updateActiveCard(closestIdx);
+          }
+        }, { passive: true });
+
+        // Category button click handling
+        categoryButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const cat = btn.getAttribute('data-category');
+            if (cat && cat !== currentCategory) {
+              renderCategory(cat, true);
+            }
+          });
+        });
+
+        // Prev & Next navigation
+        prevBtn.addEventListener('click', () => {
+          scrollToCard(currentIndex - 1);
+        });
+
+        nextBtn.addEventListener('click', () => {
+          scrollToCard(currentIndex + 1);
+        });
+
+        // Keyboard arrow navigation when skills section is in viewport
+        window.addEventListener('keydown', (e) => {
+          const rect = skillsSection.getBoundingClientRect();
+          const inView = rect.top < window.innerHeight && rect.bottom > 0;
+          if (!inView) return;
+
+          if (e.key === 'ArrowRight') {
+            scrollToCard(currentIndex + 1);
+          } else if (e.key === 'ArrowLeft') {
+            scrollToCard(currentIndex - 1);
+          }
+        });
+
+        // Window Resize: recompute layout dimensions
+        window.addEventListener('resize', () => {
+          updateLayoutDimensions();
+          if (isDesktop) {
+            scrollToCard(currentIndex);
+          }
+        }, { passive: true });
+
+        // Initial render: Languages
+        renderCategory('languages');
+      }
+
+      // 5. Interactive 3D Geometric Structure for #hero-3d (Autonomous continuous animation, NO mouse interaction)
+      initHero3DGeometry();
+
+      function initHero3DGeometry() {
+        const container = document.getElementById('hero-3d');
+        const heroSection = document.getElementById('hero');
+        const fallbackSvg = document.getElementById('hero-3d-fallback');
+        if (!container || !heroSection) return;
+
+        // Check WebGL availability
+        function isWebGLAvailable() {
+          try {
+            const canvas = document.createElement('canvas');
+            return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+          } catch (e) {
+            return false;
+          }
+        }
+
+        if (typeof THREE === 'undefined' || !isWebGLAvailable()) {
+          return;
+        }
+
+        // Hide fallback SVG cleanly
+        if (fallbackSvg) {
+          fallbackSvg.style.display = 'none';
+        }
+
+        let width = container.clientWidth || 380;
+        let height = container.clientHeight || 380;
+
+        // Three.js Scene, Camera, and Low-Power Transparent Renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+        camera.position.set(0, 0, 7.5);
+
+        const renderer = new THREE.WebGLRenderer({
+          alpha: true,
+          antialias: true,
+          powerPreference: 'low-power'
+        });
+        renderer.setSize(width, height);
+        // Optimize rendering resolution to avoid excessive GPU overhead
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+        renderer.domElement.setAttribute('aria-hidden', 'true');
+        renderer.domElement.style.pointerEvents = 'none';
+        container.appendChild(renderer.domElement);
+
+        // Architectural geometric group
+        const networkGroup = new THREE.Group();
+        scene.add(networkGroup);
+
+        // System Architecture Network: 18 coordinate nodes representing computational layers
+        const nodesData = [
+          { pos: [0.0, 2.15, 0.4], isKey: true },
+          { pos: [-1.4, 1.65, -0.5], isKey: false },
+          { pos: [1.35, 1.7, -0.4], isKey: false },
+          { pos: [2.05, 1.05, 0.6], isKey: false },
+          { pos: [-1.95, 1.15, 0.5], isKey: false },
+
+          { pos: [0.0, 0.55, 1.5], isKey: true },
+          { pos: [1.65, 0.25, 0.85], isKey: false },
+          { pos: [-1.7, 0.3, 0.75], isKey: false },
+          { pos: [1.25, -0.35, -1.3], isKey: false },
+          { pos: [-1.35, -0.3, -1.2], isKey: false },
+          { pos: [2.2, -0.65, 0.3], isKey: false },
+          { pos: [-2.15, -0.6, 0.25], isKey: false },
+
+          { pos: [0.0, -1.25, 1.4], isKey: true },
+          { pos: [1.45, -1.55, -0.6], isKey: false },
+          { pos: [-1.35, -1.65, -0.5], isKey: false },
+          { pos: [0.0, -2.15, -0.4], isKey: true },
+          { pos: [1.75, -1.95, 0.5], isKey: false },
+          { pos: [-1.8, -1.85, 0.55], isKey: false }
+        ];
+
+        // Portfolio brand colors, with a warm secondary accent woven in for visual variety
+        const accentColor = new THREE.Color(0x0284c7);
+        const highlightColor = new THREE.Color(0x38bdf8);
+        const warmColor = new THREE.Color(0xd97706);
+
+        // Nodes (Vertices)
+        const nodeGeometry = new THREE.SphereGeometry(1, 16, 16);
+        const haloGeometry = new THREE.RingGeometry(0.12, 0.155, 24);
+        const nodeMeshes = [];
+
+        nodesData.forEach((node, idx) => {
+          const baseScale = node.isKey ? 0.082 : 0.052;
+          const material = new THREE.MeshBasicMaterial({
+            color: node.isKey ? highlightColor : (idx % 4 === 0 ? warmColor : accentColor),
+            transparent: true,
+            opacity: node.isKey ? 1.0 : 0.82
+          });
+
+          const mesh = new THREE.Mesh(nodeGeometry, material);
+          mesh.position.set(node.pos[0], node.pos[1], node.pos[2]);
+          mesh.scale.set(baseScale, baseScale, baseScale);
+          networkGroup.add(mesh);
+
+          if (node.isKey) {
+            const haloMat = new THREE.MeshBasicMaterial({
+              color: accentColor,
+              transparent: true,
+              opacity: 0.35,
+              side: THREE.DoubleSide
+            });
+            const halo = new THREE.Mesh(haloGeometry, haloMat);
+            halo.position.copy(mesh.position);
+            halo.lookAt(camera.position);
+            networkGroup.add(halo);
+          }
+
+          nodeMeshes.push({
+            mesh,
+            baseScale,
+            phase: idx * 0.42
+          });
+        });
+
+        // Edge Connections: connect proximate pairs
+        const linePositions = [];
+        const minDistance = 0.95;
+        const maxDistance = 2.3;
+
+        for (let i = 0; i < nodesData.length; i++) {
+          for (let j = i + 1; j < nodesData.length; j++) {
+            const p1 = new THREE.Vector3(...nodesData[i].pos);
+            const p2 = new THREE.Vector3(...nodesData[j].pos);
+            const d = p1.distanceTo(p2);
+            if (d >= minDistance && d <= maxDistance) {
+              linePositions.push(p1.x, p1.y, p1.z);
+              linePositions.push(p2.x, p2.y, p2.z);
+            }
+          }
+        }
+
+        const lineGeo = new THREE.BufferGeometry();
+        lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+
+        const lineMat = new THREE.LineBasicMaterial({
+          color: accentColor,
+          transparent: true,
+          opacity: 0.42,
+          depthWrite: false
+        });
+
+        const lines = new THREE.LineSegments(lineGeo, lineMat);
+        networkGroup.add(lines);
+
+        // Equatorial Architecture Reference Ring
+        const ringPoints = [];
+        const ringRadius = 2.45;
+        const ringSegs = 64;
+        for (let i = 0; i <= ringSegs; i++) {
+          const t = (i / ringSegs) * Math.PI * 2;
+          ringPoints.push(Math.cos(t) * ringRadius, Math.sin(t) * (ringRadius * 0.82), 0);
+        }
+        const ringGeo = new THREE.BufferGeometry();
+        ringGeo.setAttribute('position', new THREE.Float32BufferAttribute(ringPoints, 3));
+        const ringMat = new THREE.LineBasicMaterial({
+          color: accentColor,
+          transparent: true,
+          opacity: 0.26,
+          depthWrite: false
+        });
+        const orbitRing = new THREE.Line(ringGeo, ringMat);
+        orbitRing.rotation.x = Math.PI / 4.2;
+        orbitRing.rotation.y = Math.PI / 8;
+        networkGroup.add(orbitRing);
+
+        // Initial balanced orientation
+        const BASE_ROTX = 0.14;
+        let baseRotY = 0.35;
+
+        // Responsive viewport scaling
+        function updateViewportScale() {
+          const w = window.innerWidth;
+          if (w < 480) {
+            networkGroup.scale.set(0.72, 0.72, 0.72);
+          } else if (w < 768) {
+            networkGroup.scale.set(0.84, 0.84, 0.84);
+          } else if (w < 1024) {
+            networkGroup.scale.set(0.95, 0.95, 0.95);
+          } else {
+            networkGroup.scale.set(1.08, 1.08, 1.08);
+          }
+        }
+        updateViewportScale();
+
+        // Accessibility checks
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let isHeroInView = true;
+        let animationFrameId = null;
+
+        // Performance: IntersectionObserver pauses rendering when hero scrolls out of view
+        const heroObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            isHeroInView = entry.isIntersecting;
+            if (isHeroInView && !animationFrameId && !prefersReducedMotion) {
+              animationFrameId = requestAnimationFrame(renderLoop);
+            }
+          });
+        }, { threshold: 0.05 });
+        heroObserver.observe(heroSection);
+
+        // Animation Loop: Autonomous continuous subtle motion (Zero mouse interaction)
+        function renderLoop(now) {
+          if (!isHeroInView) {
+            animationFrameId = null;
+            return;
+          }
+
+          if (prefersReducedMotion) {
+            networkGroup.rotation.y = baseRotY;
+            networkGroup.rotation.x = BASE_ROTX;
+            networkGroup.position.set(0, 0, 0);
+            renderer.render(scene, camera);
+            animationFrameId = null;
+            return;
+          }
+
+          // Slow continuous rotation around Y
+          baseRotY += 0.0022;
+          networkGroup.rotation.y = baseRotY;
+
+          // Subtle natural inclination undulation around X
+          networkGroup.rotation.x = BASE_ROTX + Math.sin(now * 0.0007) * 0.05;
+
+          // Subtle floating depth movement
+          networkGroup.position.y = Math.sin(now * 0.0011) * 0.16;
+          networkGroup.position.z = Math.cos(now * 0.0009) * 0.10;
+
+          // Independent motion of orbit ring (counter-rotation + tilt precession)
+          orbitRing.rotation.z -= 0.0025;
+          orbitRing.rotation.x = (Math.PI / 4.2) + Math.sin(now * 0.0008) * 0.08;
+
+          // Gentle breathing of vertices
+          const t = now * 0.0016;
+          for (let i = 0; i < nodeMeshes.length; i++) {
+            const item = nodeMeshes[i];
+            const pulse = 1 + 0.12 * Math.sin(t + item.phase);
+            item.mesh.scale.set(item.baseScale * pulse, item.baseScale * pulse, item.baseScale * pulse);
+          }
+
+          renderer.render(scene, camera);
+          animationFrameId = requestAnimationFrame(renderLoop);
+        }
+
+        // Initial render
+        renderer.render(scene, camera);
+        if (!prefersReducedMotion) {
+          animationFrameId = requestAnimationFrame(renderLoop);
+        }
+
+        // Resize handling
+        const resizeObs = new ResizeObserver(() => {
+          const newW = container.clientWidth || 380;
+          const newH = container.clientHeight || 380;
+          camera.aspect = newW / newH;
+          camera.updateProjectionMatrix();
+          renderer.setSize(newW, newH);
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+          updateViewportScale();
+          if (prefersReducedMotion) {
+            renderer.render(scene, camera);
+          }
+        });
+        resizeObs.observe(container);
+
+        window.addEventListener('resize', updateViewportScale, { passive: true });
+      }
+
+      // 6. Mini Decorative 3D Elements (Skills Octahedron, Projects Icosahedron, Contact Torus)
+      function initMini3DDecor(elementId, geometryType) {
+        const container = document.getElementById(elementId);
+        if (!container || typeof THREE === 'undefined') return;
+
+        const w = container.clientWidth || 48;
+        const h = container.clientHeight || 48;
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(40, w / h, 0.1, 50);
+        camera.position.z = 3.8;
+
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'low-power' });
+        renderer.setSize(w, h);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+        renderer.domElement.style.pointerEvents = 'none';
+        container.appendChild(renderer.domElement);
+
+        let geo;
+        if (geometryType === 'octahedron') {
+          geo = new THREE.OctahedronGeometry(1.15, 0);
+        } else if (geometryType === 'icosahedron') {
+          geo = new THREE.IcosahedronGeometry(1.1, 0);
+        } else {
+          geo = new THREE.TorusGeometry(0.85, 0.28, 8, 20);
+        }
+
+        const wireframeGeo = new THREE.WireframeGeometry(geo);
+        const lineMat = new THREE.LineBasicMaterial({
+          color: 0x0284c7,
+          transparent: true,
+          opacity: 0.45
+        });
+        const mesh = new THREE.LineSegments(wireframeGeo, lineMat);
+        scene.add(mesh);
+
+        // Subtle decorative nodes
+        const pointsMat = new THREE.PointsMaterial({
+          color: 0x10b981,
+          size: 2.5,
+          transparent: true,
+          opacity: 0.6
+        });
+        const points = new THREE.Points(geo, pointsMat);
+        scene.add(points);
+
+        let inView = false;
+        let rafId = null;
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            inView = e.isIntersecting;
+            if (inView && !rafId && !prefersReduced) {
+              rafId = requestAnimationFrame(animateMini);
+            }
+          });
+        }, { threshold: 0.1 });
+        obs.observe(container);
+
+        function animateMini(time) {
+          if (!inView) {
+            rafId = null;
+            return;
+          }
+          mesh.rotation.x = time * 0.0004;
+          mesh.rotation.y = time * 0.0006;
+          points.rotation.x = mesh.rotation.x;
+          points.rotation.y = mesh.rotation.y;
+          renderer.render(scene, camera);
+          rafId = requestAnimationFrame(animateMini);
+        }
+
+        renderer.render(scene, camera);
+        if (!prefersReduced) {
+          rafId = requestAnimationFrame(animateMini);
+        }
+      }
+
+      initMini3DDecor('skills-3d-decor', 'octahedron');
+      initMini3DDecor('projects-3d-decor', 'icosahedron');
+      initMini3DDecor('contact-3d-decor', 'torus');
+
+      // 7. Contact Form Submission Handling
+      const contactForm = document.getElementById('contact-form');
+      const formFeedback = document.getElementById('form-feedback');
+
+      if (contactForm && formFeedback) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const nameVal = document.getElementById('contact-name').value.trim();
+          const emailVal = document.getElementById('contact-email').value.trim();
+          const messageVal = document.getElementById('contact-message').value.trim();
+
+          if (!nameVal || !emailVal || !messageVal) {
+            formFeedback.className = 'mt-6 p-4 rounded-lg bg-red-50 border border-red-200 text-xs text-red-800';
+            formFeedback.innerHTML = '<strong>Incomplete submission:</strong> Please provide your name, valid email address, and message.';
+            formFeedback.classList.remove('hidden');
+            return;
+          }
+
+          // Cheerful, positive, and truthful acknowledgment
+          formFeedback.className = 'mt-6 p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-xs text-charcoal';
+          formFeedback.innerHTML = `
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-charcoal">Thank you for reaching out, ${escapeHtml(nameVal)}!</p>
+                <p class="mt-1 text-charcoal-muted leading-relaxed">
+                  Your note has been received on this frontend portfolio showcase. For direct and immediate communication, please email me directly at 
+                  <a href="mailto:gulamsabauddin1@gmail.com" class="font-mono text-accent font-semibold underline">gulamsabauddin1@gmail.com</a> 
+                  or message me via <a href="https://www.linkedin.com/in/gulam-saba-uddin-4b93a4325/" target="_blank" rel="noopener noreferrer" class="font-mono text-accent font-semibold underline">LinkedIn</a>.
+                </p>
+              </div>
+            </div>
+          `;
+          formFeedback.classList.remove('hidden');
+          contactForm.reset();
+        });
+      }
+
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.innerText = text;
+        return div.innerHTML;
+      }
+    });
+  </script>
+</body>
+
+</html>
