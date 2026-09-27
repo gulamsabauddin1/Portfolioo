@@ -1,0 +1,46 @@
+import { useEffect, useState } from "react";
+
+const LINKS: { id: string; label: string }[] = [
+  { id: "work", label: "Work" },
+  { id: "about", label: "About" },
+  { id: "contact", label: "Contact" },
+];
+
+export default function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const go = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <nav className={`nav${scrolled ? " is-scrolled" : ""}`}>
+      <a
+        className="nav__mark"
+        href="#top"
+        onClick={(e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+      >
+        Gulam
+      </a>
+      <ul className="nav__links">
+        {LINKS.map((l) => (
+          <li key={l.id}>
+            <button className="nav__link" onClick={() => go(l.id)}>
+              {l.label}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
