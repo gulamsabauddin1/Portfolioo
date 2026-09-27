@@ -24,7 +24,7 @@ export default function Loader({ onDone }: { onDone: () => void }) {
     >
       <div className="loader__orb">
         <OrbConverge
-          dotColor="#2f5cff"
+          dotColor="#547748"
           density={220}
           dotSize={140}
           speed={62}

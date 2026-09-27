@@ -1,6 +1,5 @@
 import { useState } from "react";
 import BlockTextReveal from "./ui/BlockTextReveal";
-import LiquidCarveButton from "./ui/LiquidCarveButton";
 import EasterEgg from "./EasterEgg";
 
 export default function Footer() {
@@ -33,22 +32,13 @@ export default function Footer() {
             />
           </div>
 
-          <LiquidCarveButton
-            label="EMAIL ME"
-            padding="16px 30px"
-            rounded={100}
-            colors={{ fill: "#14171A", textColor: "#F1F2F4" }}
-            blob={{ color: "#2f5cff", size: 80, smoothness: 55 }}
-            font={{ fontFamily: "Space Grotesk", fontWeight: 600, fontSize: 14 }}
-            link="mailto:your-email@example.com"
-            newTab={false}
-          />
+          <a className="footer__cta" href="mailto:gulamsabauddin1@gmail.com">Drop me a line <span aria-hidden="true">↗</span></a>
         </div>
 
         <div className="footer__links">
-          <a className="footer__link" href="mailto:your-email@example.com">your-email@example.com</a>
-          <a className="footer__link" href="https://github.com/your-username" target="_blank" rel="noreferrer">GitHub</a>
-          <a className="footer__link" href="https://linkedin.com/in/your-handle" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a className="footer__link" href="mailto:gulamsabauddin1@gmail.com">gulamsabauddin1@gmail.com</a>
+          <a className="footer__link" href="https://github.com/gulamsabauddin1" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a className="footer__link" href="https://www.linkedin.com/in/gulam-saba-uddin-4b93a4325/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
         </div>
       </div>
 

@@ -50,15 +50,6 @@ export const projects: Project[] = [
     featured: false,
     hue: 235,
   },
-  {
-    slug: "calculator",
-    title: "Calculator",
-    year: "2024",
-    blurb: "A small, clean web calculator.",
-    stack: ["HTML", "CSS", "JavaScript"],
-    featured: false,
-    hue: 214,
-  },
 ];
 
 /** A flat, text-first "poster" per project, as a data-URI SVG — used as the
