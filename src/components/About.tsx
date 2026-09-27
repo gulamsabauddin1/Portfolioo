@@ -2,9 +2,9 @@ import BlockTextReveal from "./ui/BlockTextReveal";
 
 const stats = [
   { value: "9.11", label: "Diploma CGPA", sub: "through sem 5" },
-  { value: "3+", label: "Shipped projects", sub: "real users" },
-  { value: "30h", label: "Hackathon build", sub: "DawaSetu Edge" },
-  { value: "B.Tech", label: "Lateral entry", sub: "ECET qualified" },
+  { value: "3+", label: "Shipped Projects", sub: "real users" },
+  { value: "24h", label: "GNIT Hackathon Build", sub: "RAG-Based AI Project" },
+  { value: "B.Tech", label: "Lateral Entry", sub: "ECET qualified" },
 ];
 
 const timeline = [
