@@ -42,3 +42,16 @@
 .projects__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.project-card,.project-card:nth-child(3),.project-card:nth-child(4){grid-column:auto!important}.project-card:nth-child(5){grid-column:1/-1;width:min(100%,calc(50% - 9px));justify-self:center}.project-card{min-height:440px}.project-card__content{padding-top:192px}.project-art{left:20px;right:20px;top:58px;height:174px}
 @media(max-width:900px){.projects__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.project-card:nth-child(5){grid-column:1/-1;width:calc(50% - 9px)}}
 @media(max-width:640px){.projects__grid{grid-template-columns:1fr}.project-card,.project-card:nth-child(n){grid-column:1!important;width:100%;min-height:440px;padding:18px}.project-card__content{padding-top:190px}.project-art{left:14px;right:14px;top:54px;height:155px}.project-card__bottom{flex-direction:row;align-items:flex-end}.project-card__bottom>a{font-size:10px}.project-card h3{max-width:100%}}
+
+/* Skill-card hover interaction */
+.skills__group{position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,border-color .3s,background-color .3s}
+.skills__group::before{position:absolute;top:0;left:18px;width:42px;height:3px;border-radius:0 0 4px 4px;background:#34765e;content:"";transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.skills__icon{transition:transform .3s cubic-bezier(.2,.8,.2,1),background-color .3s,color .3s,box-shadow .3s}
+.skills__pills span{transition:transform .3s cubic-bezier(.2,.8,.2,1),background-color .3s,color .3s}
+@media(hover:hover) and (pointer:fine){
+  .skills__group:hover{transform:translateY(-7px) scale(1.01);border-color:#b5cbbb;background:#fbfdfb;box-shadow:0 20px 38px #233d2e20}
+  .skills__group:hover::before{transform:scaleX(1)}
+  .skills__group:hover .skills__icon{transform:rotate(-9deg) scale(1.14);background:#245c49;color:#fff;box-shadow:0 6px 14px #245c4930}
+  .skills__group:hover .skills__pills span{transform:translateY(-2px);background:#edf4ef;color:#385946}
+}
+@media(prefers-reduced-motion:reduce){.skills__group,.skills__group::before,.skills__icon,.skills__pills span{transition:none}}
