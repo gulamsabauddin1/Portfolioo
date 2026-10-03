@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import Loader from "./components/Loader";
 import CustomCursor from "./components/CustomCursor";
 import Nav from "./components/Nav";
@@ -23,6 +24,7 @@ export default function App() {
         <Projects />
       </main>
       <Footer />
+      <Analytics />
     </>
   );
 }
